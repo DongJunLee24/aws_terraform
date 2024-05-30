@@ -1,0 +1,9 @@
+# Ignore all files
+*
+
+# Except .tf files in specific directories
+!vpc/*.tf
+!final_aws/*.tf
+!bt_host/*.tf
+!alb/*.tf
+
