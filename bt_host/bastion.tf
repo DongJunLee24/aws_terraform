@@ -76,7 +76,10 @@ resource "aws_instance" "bastion_host" {
       "helm repo add eks https://aws.github.io/eks-charts",
       "helm repo update",
       "helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=my-cluster --set serviceAccount.create=true --set region=ap-northeast-1 --set vpcId=${data.external.vpc_id.result.vpc_id} --set serviceAccount.name=aws-load-balancer-controller",
-      "kubectl apply -f ingress.yaml"
+      "kubectl apply -f ingress.yaml",
+      "sudo yum install docker -y",
+      "sudo service docker start",
+      "sudo usermod -a -G docker ec2-user"
     ]
 
     connection {
